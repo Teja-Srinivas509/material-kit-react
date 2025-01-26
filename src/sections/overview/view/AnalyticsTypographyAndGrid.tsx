@@ -1,34 +1,20 @@
-import { useLocation } from 'react-router-dom';
 import Grid from '@mui/material/Unstable_Grid2';
-import Typography from '@mui/material/Typography';
-
-
 import { _tasks, _posts, _timeline } from 'src/_mock';
-import { DashboardContent } from 'src/layouts/dashboard';
-import DashboardPage from 'src/layouts/dashboard/dashboardPage';
-import { AnalyticsNews } from '../analytics-news';
-import { AnalyticsTasks } from '../analytics-tasks';
-import { AnalyticsCurrentVisits } from '../analytics-current-visits';
-import { AnalyticsOrderTimeline } from '../analytics-order-timeline';
-import { AnalyticsWebsiteVisits } from '../analytics-website-visits';
+
+
 import { AnalyticsWidgetSummary } from '../analytics-widget-summary';
-import { AnalyticsTrafficBySite } from '../analytics-traffic-by-site';
-import { AnalyticsCurrentSubject } from '../analytics-current-subject';
+import { AnalyticsCurrentVisits } from '../analytics-current-visits';
+import { AnalyticsWebsiteVisits } from '../analytics-website-visits';
 import { AnalyticsConversionRates } from '../analytics-conversion-rates';
+import { AnalyticsCurrentSubject } from '../analytics-current-subject';
+import { AnalyticsNews } from '../analytics-news';
+import { AnalyticsOrderTimeline } from '../analytics-order-timeline';
+import { AnalyticsTrafficBySite } from '../analytics-traffic-by-site';
+import { AnalyticsTasks } from '../analytics-tasks';
 
-// ----------------------------------------------------------------------
 
-export function OverviewAnalyticsView() {
-  const location = useLocation();
+export function AnalyticsTypographyAndGrid() {
   return (
-    <DashboardContent maxWidth="xl">
-      {location.pathname === '/dashboard' && (
-        <DashboardPage/>
-      )}
-      <Typography variant="h4" sx={{ mb: { xs: 3, md: 5 } }}>
-        Hi, Welcome back 👋
-      </Typography>
-      
       <Grid container spacing={3}>
         <Grid xs={12} sm={6} md={3}>
           <AnalyticsWidgetSummary
@@ -165,7 +151,5 @@ export function OverviewAnalyticsView() {
           <AnalyticsTasks title="Tasks" list={_tasks} />
         </Grid>
       </Grid>
-      
-    </DashboardContent>
   );
 }
